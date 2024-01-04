@@ -48,14 +48,35 @@ public class Solution {
         scan.close();
 
         // Split the string into tokens using regular expression
-        String[] tokens = s.split("[ !,?._'@]+");
+        String[] tokens = s.split("\\s*[^A-Za-z]+\\s*");
 
-        // Print the no. of tokens
-        System.out.println(tokens.length);
-
-        // Print each token on a new line
+        // Count the number of non-empty tokens
+        int count = 0;
         for (String token : tokens) {
-            System.out.println(token);
+            if (!token.isEmpty()) {
+                count++;
+            }
         }
+
+        // Print the number of tokens
+        System.out.println(count);
+
+        // Print each non-empty token on a new line
+        for (String token : tokens) {
+            if (!token.isEmpty()) {
+                System.out.println(token);
+            }
+        }
+
+        // // Split the string into tokens using regular expression
+        // String[] tokens = s.split("[ !,?._'@]+");
+
+        // // Print the no. of tokens
+        // System.out.println(tokens.length);
+
+        // // Print each token on a new line
+        // for (String token : tokens) {
+        //     System.out.println(token);
+        // }
     }
 }
